@@ -8,6 +8,10 @@ as readable files.
 ####NOTE:
 scannerfs is poorly written at the moment. It's a weekend project that I started Saturday night. It will be cleaned up as time goes on, though please feel free to submit a pull request!
 
+####REQUIREMENTS:
+ - fuse | osxfuse
+ - nmap
+
 ####USAGE:
     go get
     go build
