@@ -2,8 +2,7 @@ Scanner FS
 ==========
 
 Scanner FS is a virtual file system that enumerates all of the hosts on a network and displays them as readable files. Reading a file
-will then trigger an nmap scan. In the future each host will also be a directory, with a variety of scans available as files (nessus, nmap -o, etc...)
-as readable files.
+will then trigger an nmap scan. In the future each host will also be a directory, with a variety of scans available as files (nessus, nmap -o, etc...).
 
 ####NOTE:
 scannerfs is poorly written at the moment. It's a weekend project that I started Saturday night. It will be cleaned up as time goes on, though please feel free to submit a pull request!
