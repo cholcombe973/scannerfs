@@ -5,6 +5,9 @@ Scanner FS is a FUSE filesystem that enumerates all of the hosts on a network de
 will then trigger an nmap scan. In the future each host will instead be a directory, with a variety of scans available (nessus, nmap -o, etc...)
 as readable files.
 
+####NOTE:
+This project is poorly written at the moment. It's a weekend project that I started Saturday night. It will be cleaned up as time goes on, though please feel free to submit a pull request!
+
 ####USAGE:
     go get
     go build
