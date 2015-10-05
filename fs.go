@@ -92,7 +92,7 @@ var _ = fs.HandleReadDirAller(&Dir{})
 func (d *Dir) ReadDirAll(ctx context.Context) ([]fuse.Dirent, error) {
 	if d.host.address == "" {
 		// Always try to add new hosts when ls is run against the root dir
-		scanner.EnumerateHosts()
+		d.scanner.EnumerateHosts()
 	}
 	var res []fuse.Dirent
 	res = append(res, fuse.Dirent{Type: fuse.DT_Dir, Name: "."})
