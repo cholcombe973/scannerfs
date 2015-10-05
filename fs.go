@@ -128,7 +128,6 @@ func (d *Dir) Lookup(ctx context.Context, req *fuse.LookupRequest, resp *fuse.Lo
 var _ = fs.NodeOpener(&File{})
 
 func (f *File) Open(ctx context.Context, req *fuse.OpenRequest, resp *fuse.OpenResponse) (fs.Handle, error) {
-	f.host.nmapScan()
 	return &FileHandle{host: f.host}, nil
 }
 
@@ -147,7 +146,8 @@ func (fh *FileHandle) Release(ctx context.Context, req *fuse.ReleaseRequest) err
 var _ = fs.HandleReader(&FileHandle{})
 
 func (fh *FileHandle) Read(ctx context.Context, req *fuse.ReadRequest, resp *fuse.ReadResponse) error {
-	padding := make([]byte, req.Size-len(fh.host.nmapData))
-	resp.Data = append(fh.host.nmapData, padding...)
+	data, _ := fh.host.NmapScan()
+	padding := make([]byte, req.Size-len(data))
+	resp.Data = append(data, padding...)
 	return nil
 }

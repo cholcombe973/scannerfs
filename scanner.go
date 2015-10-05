@@ -6,14 +6,11 @@ import (
 )
 
 type Host struct {
-	address  string
-	nmapData []byte
+	address string
 }
 
-func (host *Host) nmapScan() error {
-	scan, err := exec.Command("nmap", host.address).Output()
-	host.nmapData = scan
-	return err
+func (host *Host) NmapScan() ([]byte, error) {
+	return exec.Command("nmap", host.address).Output()
 }
 
 type Scanner struct {
